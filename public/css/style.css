@@ -1,0 +1,37 @@
+p {
+    margin: 10px 0 !important;
+  }
+  .login-container {
+    width: 400px;
+    height: 300px;
+    margin-top: 40px;
+    text-align: center;
+    opacity: 0.94;
+  }
+  
+  .fa-small {
+    font-size: 16px !important;
+  }
+  
+  .btn-float {
+    float: left;
+    margin-right: 10px;
+  }
+  
+  .img-small {
+    width: 180px;
+  }
+
+  .div-bn{ 
+    background-image: url(../img/img_girl.jpg);
+    padding: 220px;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: none;
+    object-fit: cover;
+    object-position: 100% 0;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+
