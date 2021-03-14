@@ -10,7 +10,9 @@ module.exports = function(passport) {
     },
     async (accessToken, refreshToken, profile, done) => {
         console.log(profile)
-    }))
+        }
+    )
+)
 
     passport.serializeUser((user, done) => {
         done(null, user.id)

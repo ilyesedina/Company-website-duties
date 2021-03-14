@@ -32,6 +32,7 @@ p {
     object-position: 100% 0;
     background-attachment: fixed;
     background-size: cover;
+    height: 100vh;
   }
 
 
