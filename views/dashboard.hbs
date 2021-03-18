@@ -14,7 +14,7 @@
         <tbody>
             {{#each tasks}}
                 <tr>
-                    <td><a href="/tasks/{{_id}}"></a>{{title}}</td>
+                    <td><a href="/tasks/{{_id}}">{{title}}</a></td>
                     <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
                     <td><samp class="dash-status">{{status}}</samp></td>
                     <td></td>

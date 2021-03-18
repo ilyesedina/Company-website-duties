@@ -35,4 +35,8 @@ p {
     height: 100vh;
   }
 
+  .fa-small {
+    font-size: 16px !important;
+  }
+
 
