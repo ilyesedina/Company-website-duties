@@ -1,4 +1,4 @@
-<h1>Tasks</h1>
+<h5>Tasks</h5>
 <div class="row">
     {{#each tasks}}
         <div class="col s12 m4">
@@ -8,7 +8,7 @@
                 </div>
                 <div class="card-content center-align">
                     <h5>{{title}}</h5>
-                    <p>{{body}}</p>
+                    <p>{{stripTags (truncate body 150)}}</p>
                     <br>
                     <div class="chip">
                         <img src="{{user.image}}" alt="">
