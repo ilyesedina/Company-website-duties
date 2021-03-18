@@ -23,5 +23,22 @@ router.post('/', ensureAuth, async (req, res) => {
     }
 })
 
+// @desc    Show all tasks
+// @route   GET /tasks
+router.get('/', ensureAuth, async (req, res) => {
+    try {
+       const tasks = await Task.find({ status: 'public' })
+        .populate('user')
+        .sort({ createdAt: 'desc' })
+        .lean()
+
+    res.render('tasks/index', {
+        tasks,
+    })
+    } catch (err) {
+        console.error(err)
+        res.render('error/500')
+    }
+})
 
 module.exports = router
