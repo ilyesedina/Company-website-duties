@@ -1,10 +1,13 @@
 const path = require('path')
 const express = require('express')
+const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const exphbs = require('express-handlebars')
 const passport = require('passport')
 const session = require('express-session')
+//const MongoStore = require('connect-mongo')(session)
+const MongoStore = require('connect-mongo').default
 const connectDB = require('./config/db')
 
 // Load config 
@@ -26,12 +29,24 @@ if (process.env.NODE_ENV === 'development') {
 app.engine('.hbs', exphbs({ defaultLayout: 'main', extname: '.hbs'}));
 app.set('view engine', '.hbs')
 
+
+
+
+//session configuration
+const mongoStore = MongoStore.create({
+  mongoUrl: process.env.MONGO_URI,
+  collectionName: "sessions",
+});
+
 // Sessions
-app.use(session({
+app.use(
+  session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: false,
-  }))
+    store: mongoStore, //new MongoStore({ mongooseConnection: mongoose.connection }),
+  })
+)
 
 // Passport middleware
 app.use(passport.initialize())
