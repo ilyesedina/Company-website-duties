@@ -1,6 +1,7 @@
 <h5>Edit Task</h5>
 <div class="row">
-    <form action="/tasks" method="POST" class="col s12">
+    <form action="/tasks/{{task._id}}" method="POST" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
         <div class="row">
             <div class="input-field">
                 <input type="text" id="title" name="title" value="{{task.title}}">
