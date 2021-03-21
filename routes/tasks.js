@@ -139,5 +139,25 @@ router.delete('/:id', ensureAuth, async (req, res) => {
   }
 })
 
+// @desc    User tasks
+// @route   GET /tasks/user/:userId
+router.get('/user/:userId', ensureAuth, async (req, res) => {
+  try {
+    const tasks = await Task.find({
+      user: req.params.userId,
+      status: 'public',
+    })
+      .populate('user')
+      .lean()
+
+    res.render('tasks/index', {
+      tasks,
+    })
+  } catch (err) {
+    console.error(err)
+    res.render('error/500')
+  }
+})
+
 
 module.exports = router
