@@ -42,6 +42,29 @@ router.get('/', ensureAuth, async (req, res) => {
 }) 
 
 
+// @desc    Show single task
+// @route   GET /tasks/:id
+router.get('/:id', ensureAuth, async (req, res) => {
+  try {
+    let task = await Task.findById(req.params.id).populate('user').lean()
+
+    if (!task) {
+      return res.render('error/404')
+    }
+
+    if (task.user._id != req.user.id && task.status == 'private') {
+      res.render('error/404')
+    } else {
+      res.render('tasks/show', {
+        task,
+      })
+    }
+  } catch (err) {
+    console.error(err)
+    res.render('error/404')
+  }
+})
+
 // @desc    Show edit page
 // @route   GET /tasks/edit/:id
 router.get('/edit/:id', ensureAuth, async (req, res) => {
