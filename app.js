@@ -73,7 +73,7 @@ app.use(
   session({
     secret: 'keyboard cat',
     resave: true,
-    saveUninitialized: false,
+    saveUninitialized: true,
     store: mongoStore, //new MongoStore({ mongooseConnection: mongoose.connection }),
     cookie:{
       sameSite: "none",
