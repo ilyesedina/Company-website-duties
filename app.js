@@ -57,8 +57,7 @@ app.engine('.hbs', exphbs({ helpers: {
     extname: '.hbs'
   })
 )
-app.set("trust proxy", 1);
-//app.set('view engine', '.hbs')
+app.set('view engine', '.hbs')
 
 
 //session configuration
@@ -67,17 +66,19 @@ const mongoStore = MongoStore.create({
   collectionName: "sessions",
 });
 
+app.set("trust proxy", 1);
+
 // Sessions
 app.use(
   session({
     secret: 'keyboard cat',
-    resave: true,
-    saveUninitialized: true,
-    store: mongoStore, //new MongoStore({ mongooseConnection: mongoose.connection }),
+    resave: false,
+    saveUninitialized: false,
+    //store: mongoStore, //new MongoStore({ mongooseConnection: mongoose.connection }),
     cookie:{
       sameSite: "none",
       secure: true,
-      maxAge: 604800000 // One week
+      //maxAge: 604800000 // One week
     }
   })
 )
