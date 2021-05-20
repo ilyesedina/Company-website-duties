@@ -66,6 +66,8 @@ const mongoStore = MongoStore.create({
   collectionName: "sessions",
 });
 
+app.set("trust proxy", 1);
+
 // Sessions
 app.use(
   session({
@@ -73,6 +75,11 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: mongoStore, //new MongoStore({ mongooseConnection: mongoose.connection }),
+    cookie:{
+      sameSite: "none",
+      secure: true,
+      maxAge: 1000 * 60 * 60 * 24 * 7 // One week
+    }
   })
 )
 
@@ -95,7 +102,7 @@ app.use('/auth', require('./routes/auth'))
 app.use('/tasks', require('./routes/tasks'))
 
 // setup and connect to our DB
-console.log(process.env.MONGO_URI)
+console.log(process.env.MONGO_URI);
 
 const PORT = process.env.PORT || 3000
 
