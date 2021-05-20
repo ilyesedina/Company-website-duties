@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node app",
+    "heroku-prebuild": "npm install",
     "dev": "cross-env NODE_ENV=development nodemon app"
   },
   "keywords": [

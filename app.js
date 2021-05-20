@@ -94,6 +94,9 @@ app.use('/', require('./routes/index'))
 app.use('/auth', require('./routes/auth'))
 app.use('/tasks', require('./routes/tasks'))
 
+// setup and connect to our DB
+console.log(process.env.MONGO_URI)
+
 const PORT = process.env.PORT || 3000
 
 app.listen(
