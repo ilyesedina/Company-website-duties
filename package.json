@@ -13,6 +13,7 @@
     "Google",
     "OAuth"
   ],
+  "proxy":"https://company-website-duties.herokuapp.com",
   "author": "Edina Ilyes",
   "license": "MIT",
   "dependencies": {
