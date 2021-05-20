@@ -73,8 +73,8 @@ app.use(
   session({
     secret: 'keyboard cat',
     resave: false,
-    saveUninitialized: true,
-    store: mongoStore, //new MongoStore({ mongooseConnection: mongoose.connection }),
+    saveUninitialized: false,
+    //store: mongoStore, //new MongoStore({ mongooseConnection: mongoose.connection }),
     cookie:{
       sameSite: "none",
       secure: true      //maxAge: 604800000 // One week
