@@ -21,4 +21,3 @@ npm start
 ```
 
 ![](public/img/login.JPG)
-
