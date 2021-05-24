@@ -4,8 +4,12 @@
 
 This app uses Node.js/Express/MongoDB with Google OAuth for authentication
 
-## Usage
+## Data flow
+![](public/img/dataflow.png)
 
+## User flow
+![](public/img/Userflow.png)
+## Usage
 Add your mongoDB URI and Google OAuth credentials to the config.env file
 
 ```
