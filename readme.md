@@ -1,6 +1,6 @@
 # Duties of Employees app
 
-> Create public and private tasks(CRUD). You can also see your coworker's to-do list and responsibilities.
+> Create public and private tasks(CRUD). You can also see your coworkers to-do list and responsibilities.
 
 This app uses Node.js/Express/MongoDB with Google OAuth for authentication
 
